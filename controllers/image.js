@@ -11,12 +11,7 @@ export const handleApiCall = (req, res) => {
     .then(data => { 
       res.json(data);
     })
-    .catch(err => {
-      console.log('something bad happened')
-      console.log(err)
-      console.log('something bad happened2')
-      res.status(400).json("unable to work with api")) // catch error
-    }
+    .catch(err => {res.status(400).json("unable to work with api")}) // catch error
  }
 
     // HEADS UP! Sometimes the Clarifai Models can be down or not working as they are constantly getting updated.
