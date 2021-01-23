@@ -24,7 +24,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get('/', (req, res)=> {})
+app.get('/', (req, res)=> {res.send('it is working!'}))
 // this (making sure to change the controller file in the appropriate way)
 // handleImage(db)
 app.post('/signin', handleSignin(db, bcrypt))
