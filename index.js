@@ -32,7 +32,8 @@ app.get('/profile/:id', handleProfileGet(db))
 // is the same as this
 // (req, res) =>  {handleImage(req, res, db)
 app.put('/image', (req, res) =>  {handleImage(req, res, db)})
-app.put('/imageurl', (req, res) =>  {handleApiCall(req, res, db)})
+// app.put('/imageurl', (req, res) =>  {handleApiCall(req, res, db)})
+app.post('/imageurl', (req, res) => { handleApiCall(req, res)}) 
 app.post('/register', (req, res) =>  {handleRegister(req, res, db, bcrypt)} )
 
 app.listen(process.env.PORT || 3000, ()=> {

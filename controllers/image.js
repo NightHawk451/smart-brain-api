@@ -6,8 +6,12 @@ const app = new Clarifai.App({
 })
 
 export const handleApiCall = (req, res) => {
-  console.log(req.body.input)
-  console.log('before')
+  app.models
+    .predict(Clarifai.FACE_DETECT_MODEL, req.body.input) // get body input
+    .then(data => { 
+      res.json(data);
+    })
+    .catch(err => res.status(400).json('unable to work with API')) // catch error
  }
 
     // HEADS UP! Sometimes the Clarifai Models can be down or not working as they are constantly getting updated.
