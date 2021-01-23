@@ -8,11 +8,13 @@ import handleSignin from './controllers/signin.js';
 import {handleImage, handleApiCall} from './controllers/image.js';
 import handleProfileGet from './controllers/profile.js';
 
-const db = knex({
-  client: 'pg',
-  connection: {
-    connectionString : process.env.DATABASE_URL,
-    ssl: true,
+const db = knex({ // for connecting to PostgreSQL
+  client: 'pg', // type of db
+  connection: { 
+    connectionString: process.env.DATABASE_URL, // dynamic database value for heroku    
+    ssl: {
+      rejectUnauthorized: false
+    }
   }
 });
 
